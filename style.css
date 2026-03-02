@@ -104,8 +104,8 @@ body {
   margin-left: 180px;       /* Match sidebar width so content doesn't overlap */
   padding: 1.5rem;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);  /* 4 columns — smaller images, more breathing room */
-  gap: 24px;                /* Wider white gaps between images, like ovuud.com */
+  grid-template-columns: repeat(3, 1fr);  /* 3 columns × 6 rows = 18 images */
+  gap: 32px;                /* Generous white gaps between images */
   align-content: start;     /* Grid items start from the top */
   width: calc(100% - 180px);
 }
