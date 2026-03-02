@@ -95,6 +95,212 @@ body {
   color: #1a1a1a;
 }
 
+/* ── Sub-navigation group (About & Contact parent) ── */
+.nav-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+/* Parent label — styled same as other secondary links, not clickable */
+.nav-group-label {
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: #888;
+  cursor: default;
+}
+
+/* Indented sub-links under the parent */
+.nav-group-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding-left: 0.75rem;
+}
+
+.nav-link-sub {
+  font-size: 0.65rem;
+  font-weight: 300;
+  color: #aaa;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav-link-sub:hover,
+.nav-link-sub.active {
+  color: #1a1a1a;
+}
+
+/* ════════════════════════════════════════
+   ABOUT / BACKGROUND PAGE
+   Two-column: full-height sticky image left, text right
+════════════════════════════════════════ */
+.about-page {
+  margin-left: 180px;
+  width: calc(100% - 180px);
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+}
+
+/* Image fills full viewport height and sticks as you scroll */
+.about-image {
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Text on the right side */
+.about-text {
+  padding: 4rem 3rem;
+}
+
+.about-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin-bottom: 1.5rem;
+}
+
+.about-body {
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: #444;
+  line-height: 1.9;
+}
+
+.about-body p + p {
+  margin-top: 1.2rem;
+}
+
+/* ════════════════════════════════════════
+   CONTACT PAGE
+   Two-column: full-height sticky image left, info right
+════════════════════════════════════════ */
+.contact-page {
+  margin-left: 180px;
+  width: calc(100% - 180px);
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+}
+
+.contact-image {
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+}
+
+.contact-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.contact-content {
+  padding: 4rem 3rem;
+}
+
+.contact-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+}
+
+.contact-intro {
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: #444;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+/* Contact detail lines */
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+}
+
+.contact-detail-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+}
+
+.contact-detail-value {
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: #444;
+  text-decoration: none;
+}
+
+.contact-detail-value:hover {
+  color: #1a1a1a;
+}
+
+/* ════════════════════════════════════════
+   TERMS & CONDITIONS PAGE
+   Full-width text, simple and readable
+════════════════════════════════════════ */
+.terms-page {
+  margin-left: 180px;
+  width: calc(100% - 180px);
+  padding: 4rem 5rem;
+  max-width: 860px;
+}
+
+.terms-page h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin-bottom: 2.5rem;
+}
+
+.terms-page h2 {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  margin-top: 2rem;
+  margin-bottom: 0.6rem;
+}
+
+.terms-page p {
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: #444;
+  line-height: 1.9;
+  margin-bottom: 0.8rem;
+}
+
+.terms-page p strong,
+.terms-page p b {
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
 /* ════════════════════════════════════════
    GALLERY
    3 columns, generous white gaps — matches ovuud.com spacing
@@ -325,5 +531,30 @@ body {
   .thumb {
     width: 56px;
     height: 56px;
+  }
+
+  /* About, contact, terms pages — single column on mobile */
+  .about-page,
+  .contact-page {
+    margin-left: 0;
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
+
+  .about-image,
+  .contact-image {
+    height: 60vw;
+    position: relative;
+  }
+
+  .about-text,
+  .contact-content {
+    padding: 2rem 1.5rem;
+  }
+
+  .terms-page {
+    margin-left: 0;
+    width: 100%;
+    padding: 2rem 1.5rem;
   }
 }
