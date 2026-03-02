@@ -35,41 +35,97 @@
 
   </aside>
 
-  <!-- ── ARC001 product page ── -->
+  <!-- ── ARC001 product page — two column layout ── -->
   <main class="product-page">
 
-    <!-- Product title and description -->
-    <div class="product-header">
-      <h1 class="product-title">ARC001</h1>
-      <p class="product-desc">
-        A single arc of solid brass, hand-formed and suspended in space.
-        ARC001 is a study in light, balance, and material honesty —
-        designed and made by Chris England.
-      </p>
+    <div class="product-layout">
+
+      <!-- LEFT: main image + thumbnail strip -->
+      <div class="product-images">
+
+        <!-- Main large image — changes when a thumbnail is clicked -->
+        <div class="product-main-image">
+          <img id="mainImage" src="images/product/IMG_1296.JPG" alt="ARC001" />
+        </div>
+
+        <!-- Thumbnail strip -->
+        <div class="product-thumbs">
+          <img src="images/product/IMG_1296.JPG" alt="ARC001 view 1"
+               class="thumb active" onclick="switchImage(this)" />
+          <img src="images/product/IMG_1298.JPG" alt="ARC001 view 2"
+               class="thumb" onclick="switchImage(this)" />
+          <img src="images/product/IMG_1302.JPG" alt="ARC001 view 3"
+               class="thumb" onclick="switchImage(this)" />
+          <img src="images/product/IMG_5469.JPG" alt="ARC001 view 4"
+               class="thumb" onclick="switchImage(this)" />
+        </div>
+
+      </div>
+
+      <!-- RIGHT: product title, description, specs, CTA -->
+      <div class="product-info">
+
+        <h1 class="product-title">ARC001</h1>
+
+        <p class="product-desc">
+          ARC001 is our first edition light, shaped from gently curved oak or ash
+          and designed to bring a calm, natural glow to any space. It's fully
+          portable, rechargeable via USB-C, and easy to move wherever you want
+          light to feel a little softer.
+        </p>
+
+        <p class="product-desc" style="margin-top: 1rem;">
+          Each ARC001 is made slowly and sustainably using locally sourced
+          wood — handcrafted in our home studio in Newcastle upon Tyne.
+        </p>
+
+        <!-- Specs table -->
+        <dl class="product-specs">
+          <dt>Dimensions</dt>
+          <dd>L: 43" &nbsp;·&nbsp; W: 2.2" &nbsp;·&nbsp; D: 1.5"<br>
+              <span class="spec-note">All dimensions approximate — each light is hand made to order</span>
+          </dd>
+
+          <dt>Material</dt>
+          <dd>Locally sourced oak or ash</dd>
+
+          <dt>Battery life</dt>
+          <dd>6 hours</dd>
+
+          <dt>Charging</dt>
+          <dd>USB-C</dd>
+
+          <dt>Production</dt>
+          <dd>Available for commission</dd>
+
+          <dt>Origin</dt>
+          <dd>Handcrafted in Newcastle upon Tyne</dd>
+        </dl>
+
+        <!-- Call to action -->
+        <a href="mailto:contact@bowdesign.co.uk" class="product-cta">
+          CONTACT TO PURCHASE
+        </a>
+
+      </div>
+
     </div>
 
-    <!-- 2-column grid for the 4 product images -->
-    <section class="product-gallery-hero">
-
-      <a href="#" class="gallery-item">
-        <img src="images/product/IMG_1296.JPG" alt="ARC001" />
-      </a>
-
-      <a href="#" class="gallery-item">
-        <img src="images/product/IMG_1298.JPG" alt="ARC001" />
-      </a>
-
-      <a href="#" class="gallery-item">
-        <img src="images/product/IMG_1302.JPG" alt="ARC001" />
-      </a>
-
-      <a href="#" class="gallery-item">
-        <img src="images/product/IMG_5469.JPG" alt="ARC001" />
-      </a>
-
-    </section>
-
   </main>
+
+  <!-- Simple image switcher — clicking a thumbnail updates the main image -->
+  <script>
+    function switchImage(thumb) {
+      // Update main image src
+      document.getElementById('mainImage').src = thumb.src;
+
+      // Remove 'active' from all thumbs, add to clicked one
+      document.querySelectorAll('.thumb').forEach(function(t) {
+        t.classList.remove('active');
+      });
+      thumb.classList.add('active');
+    }
+  </script>
 
 </body>
 
