@@ -268,13 +268,29 @@ body {
   max-width: 860px;
 }
 
-.terms-page h1 {
+/* Bow brand name centred at top — mirrors OVUUD's logo at the top of their T&Cs */
+.terms-brand {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.terms-brand-logo {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 1.6rem;
+  font-size: 2.4rem;
   font-weight: 500;
   color: #1a1a1a;
-  margin-bottom: 2.5rem;
+}
+
+/* Page title: uppercase bold, sans-serif — matches OVUUD style */
+.terms-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
 .terms-page h2 {
@@ -298,6 +314,166 @@ body {
 .terms-page p strong,
 .terms-page p b {
   font-weight: 600;
+  color: #1a1a1a;
+}
+
+/* ════════════════════════════════════════
+   CONTACT FORM
+   Matches OVUUD's form style
+════════════════════════════════════════ */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* Two fields side by side (First Name / Last Name) */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.form-label {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: #1a1a1a;
+}
+
+.form-required {
+  font-weight: 300;
+  color: #888;
+}
+
+.form-hint {
+  font-size: 0.65rem;
+  font-weight: 300;
+  color: #888;
+  margin: 0;
+}
+
+/* Text inputs */
+.form-input {
+  width: 100%;
+  border: 1px solid #d0d0d0;
+  border-radius: 0;
+  padding: 0.6rem 0.7rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: #1a1a1a;
+  background: #fff;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.form-input:focus {
+  border-color: #1a1a1a;
+}
+
+/* Currency wrapper adds the £ symbol */
+.form-currency {
+  display: flex;
+  align-items: center;
+  border: 1px solid #d0d0d0;
+  transition: border-color 0.2s ease;
+}
+
+.form-currency:focus-within {
+  border-color: #1a1a1a;
+}
+
+.form-currency-symbol {
+  padding: 0.6rem 0.6rem 0.6rem 0.7rem;
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: #888;
+  background: #fff;
+  pointer-events: none;
+}
+
+/* Currency input has no individual border — the wrapper provides it */
+.form-input--currency {
+  border: none;
+  padding-left: 0;
+  flex: 1;
+}
+
+.form-input--currency:focus {
+  border: none;
+}
+
+/* Textarea */
+.form-textarea {
+  width: 100%;
+  border: 1px solid #d0d0d0;
+  border-radius: 0;
+  padding: 0.6rem 0.7rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: #1a1a1a;
+  background: #fff;
+  outline: none;
+  resize: vertical;
+  line-height: 1.7;
+  transition: border-color 0.2s ease;
+}
+
+.form-textarea:focus {
+  border-color: #1a1a1a;
+}
+
+/* Submit button */
+.form-submit {
+  align-self: flex-start;
+  padding: 0.85rem 2.5rem;
+  background: #1a1a1a;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.form-submit:hover {
+  background: #444;
+}
+
+/* Contact info shown below the form */
+.contact-footer {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e8e8e8;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.contact-footer p {
+  font-size: 0.72rem;
+  font-weight: 300;
+  color: #888;
+}
+
+.contact-footer a {
+  color: #888;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contact-footer a:hover {
   color: #1a1a1a;
 }
 

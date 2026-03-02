@@ -43,54 +43,85 @@
 
   </aside>
 
-  <!-- ── Contact page: image left, contact info right ── -->
+  <!-- ── Contact page: image left, form right ── -->
   <main class="contact-page">
 
-    <!-- LEFT: moody product photo -->
-    <!-- Save your dark room / sidelight image as: images/about/contact-photo.jpg -->
+    <!-- LEFT: product photo -->
+    <!-- Save your dark room / warm sidelight image as: images/about/contact-photo.jpg -->
     <div class="contact-image">
       <img src="images/about/contact-photo.jpg" alt="ARC001 — Bow Design" />
     </div>
 
-    <!-- RIGHT: contact information -->
+    <!-- RIGHT: contact heading, form, info -->
     <div class="contact-content">
 
       <h1 class="contact-heading">Contact</h1>
 
       <p class="contact-intro">
-        You may reach out to discuss pricing, purchasing, and commission
-        enquiries. Responses may take up to 72 hours.
+        You may reach out for pricing, purchasing, and commission
+        enquiries by completing the form below. Responses may take
+        up to 72 hours.
       </p>
 
-      <!-- Contact details -->
-      <div class="contact-details">
+      <!-- Contact form — submits via email when user clicks submit -->
+      <form class="contact-form" action="mailto:hello@wildernessyurts.com" method="post" enctype="text/plain">
 
-        <div>
-          <p class="contact-detail-label">Email</p>
-          <a href="mailto:hello@wildernessyurts.com" class="contact-detail-value">
-            hello@wildernessyurts.com
-          </a>
+        <!-- Name row: first + last side by side -->
+        <div class="form-row">
+          <div class="form-field">
+            <label class="form-label">First Name <span class="form-required">(required)</span></label>
+            <input type="text" name="first_name" class="form-input" required />
+          </div>
+          <div class="form-field">
+            <label class="form-label">Last Name <span class="form-required">(required)</span></label>
+            <input type="text" name="last_name" class="form-input" required />
+          </div>
         </div>
 
-        <div>
-          <p class="contact-detail-label">Phone</p>
-          <a href="tel:+447947768295" class="contact-detail-value">
-            (+44) 7947 768 295
-          </a>
+        <!-- Email -->
+        <div class="form-field">
+          <label class="form-label">Email Address <span class="form-required">(required)</span></label>
+          <input type="email" name="email" class="form-input" required />
         </div>
 
-        <div>
-          <p class="contact-detail-label">Studio</p>
-          <p class="contact-detail-value">Newcastle upon Tyne, England</p>
+        <!-- Budget -->
+        <div class="form-field">
+          <label class="form-label">Budget Maximum <span class="form-required">(required)</span></label>
+          <div class="form-currency">
+            <span class="form-currency-symbol">£</span>
+            <input type="text" name="budget" class="form-input form-input--currency" required />
+          </div>
         </div>
 
-        <div>
-          <p class="contact-detail-label">Instagram</p>
-          <a href="https://www.instagram.com/bowdesignuk?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="contact-detail-value">
-            @bowdesignuk
-          </a>
+        <!-- Design of interest -->
+        <div class="form-field">
+          <label class="form-label">Design of Interest <span class="form-required">(required)</span></label>
+          <input type="text" name="design_interest" class="form-input"
+                 placeholder="e.g. ARC001, or describe a custom piece" required />
         </div>
 
+        <!-- Inquiry textarea -->
+        <div class="form-field">
+          <label class="form-label">Please State Your Enquiry <span class="form-required">(required)</span></label>
+          <p class="form-hint">Please describe the nature of the piece you wish to have.</p>
+          <textarea name="inquiry" class="form-textarea" rows="5"
+                    placeholder="For example, you may describe the setting the piece will live in, whether it will be the primary light source or accent, and any inspiration or references you have." required></textarea>
+        </div>
+
+        <!-- Phone (optional) -->
+        <div class="form-field">
+          <label class="form-label">Phone</label>
+          <input type="tel" name="phone" class="form-input" />
+        </div>
+
+        <button type="submit" class="form-submit">SUBMIT</button>
+
+      </form>
+
+      <!-- Contact info below the form -->
+      <div class="contact-footer">
+        <p>Enquiries: <a href="mailto:hello@wildernessyurts.com">hello@wildernessyurts.com</a></p>
+        <p>Phone: <a href="tel:+447947768295">(+44) 7947 768 295</a></p>
       </div>
 
     </div>
