@@ -1,137 +1,247 @@
-/* ── Reset & base styles ── */
+/* ── Reset: remove default browser spacing and sizing quirks ── */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* ── Base page styles ── */
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: #1a1a1a;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   background: #ffffff;
-  line-height: 1.6;
-}
-
-/* ── Navigation bar ── */
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.2rem 2rem;
-  border-bottom: 1px solid #eee;
-}
-
-.logo {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #2563eb; /* blue */
-}
-
-.nav-cta {
-  text-decoration: none;
-  color: #2563eb;
-  font-weight: 500;
-}
-
-/* ── Hero section ── */
-.hero {
-  text-align: center;
-  padding: 6rem 2rem;
-  background: #f0f4ff; /* light blue background */
-}
-
-.hero h1 {
-  font-size: 2.8rem;
-  font-weight: 800;
-  margin-bottom: 1rem;
   color: #1a1a1a;
+  display: flex;          /* Sidebar and gallery sit side by side */
+  min-height: 100vh;
 }
 
-.hero p {
-  font-size: 1.2rem;
-  color: #555;
-  max-width: 600px;
-  margin: 0 auto 2rem;
-}
-
-/* ── Button style ── */
-.btn {
-  display: inline-block;
-  background: #2563eb;
-  color: #fff;
-  padding: 0.85rem 2rem;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: background 0.2s;
-}
-
-.btn:hover {
-  background: #1d4ed8; /* slightly darker on hover */
-}
-
-/* ── Features section — three cards in a row ── */
-.features {
+/* ════════════════════════════════════════
+   SIDEBAR
+   Fixed to the left, full page height
+════════════════════════════════════════ */
+.sidebar {
+  position: fixed;        /* Stays in place while gallery scrolls */
+  top: 0;
+  left: 0;
+  width: 180px;           /* Narrow sidebar — same proportions as OVUUD */
+  height: 100vh;          /* Full viewport height */
+  padding: 2rem 1.5rem;
   display: flex;
-  gap: 2rem;
-  padding: 5rem 2rem;
-  max-width: 960px;
-  margin: 0 auto;
+  flex-direction: column; /* Stack logo, nav, and secondary links vertically */
+  background: #ffffff;
+  z-index: 10;            /* Keeps sidebar on top of scrolling content */
 }
 
-.card {
-  flex: 1; /* each card takes equal width */
-  background: #f9fafb;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  padding: 2rem;
+/* ── Logo: brand name at the top of the sidebar ── */
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #1a1a1a;
+  margin-bottom: 0.3rem;
 }
 
-.card h2 {
-  font-size: 1.3rem;
-  margin-bottom: 0.5rem;
-  color: #2563eb;
-}
-
-.card p {
-  color: #555;
-}
-
-/* ── Contact section ── */
-.contact {
-  text-align: center;
-  padding: 5rem 2rem;
-  background: #1a1a1a;
-  color: #fff;
-}
-
-.contact h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.contact p {
-  color: #aaa;
+/* ── Subtitle: "by Benjamin Gillespie" — small and light ── */
+.logo-sub {
+  font-size: 0.7rem;
+  font-weight: 300;
+  color: #888;
   margin-bottom: 2rem;
 }
 
-/* ── Footer ── */
-footer {
-  text-align: center;
-  padding: 1.5rem;
-  font-size: 0.85rem;
-  color: #aaa;
-  border-top: 1px solid #eee;
+/* ── Primary navigation (HOME, HANGING, etc.) ── */
+.nav-primary {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-/* ── Responsive: stack cards vertically on small screens ── */
-@media (max-width: 640px) {
-  .features {
+/* ── Shared style for all primary nav links ── */
+.nav-link {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;   /* Slight spacing between letters — feels editorial */
+  text-decoration: none;
+  color: #1a1a1a;
+  transition: color 0.2s ease;
+}
+
+/* ── Active/current page link is bolder ── */
+.nav-link.active {
+  font-weight: 700;
+}
+
+/* ── Hover: links go slightly grey ── */
+.nav-link:hover {
+  color: #888;
+}
+
+/* ── Secondary links: Instagram, About & Contact ── */
+.nav-secondary {
+  margin-top: auto;           /* Pushes these links to the very bottom */
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.nav-link-small {
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: #888;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav-link-small:hover {
+  color: #1a1a1a;
+}
+
+/* ════════════════════════════════════════
+   GALLERY (main content area)
+   3-column image grid, sits to the right of the sidebar
+════════════════════════════════════════ */
+.gallery {
+  margin-left: 180px;       /* Match sidebar width so content doesn't overlap */
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  /* 3 equal columns */
+  gap: 6px;                 /* Small gap between images — clean and tight */
+  align-content: start;     /* Grid items start from the top */
+  width: calc(100% - 180px);
+}
+
+/* ── Each image block is a clickable link ── */
+.gallery-item {
+  display: block;
+  overflow: hidden;         /* Clips the image if it overflows the box */
+  aspect-ratio: 3 / 4;     /* Portrait ratio — taller than wide, like OVUUD */
+}
+
+/* ── The image itself fills its container ── */
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;        /* Crops to fill without stretching */
+  display: block;
+  transition: opacity 0.25s ease;
+}
+
+/* ── Hover: image fades slightly ── */
+.gallery-item:hover img {
+  opacity: 0.8;
+}
+
+/* ════════════════════════════════════════
+   PRODUCT PAGE (arc001.html)
+   Different layout: product header + 2-col hero grid + 3-col context grid
+════════════════════════════════════════ */
+
+/* Main wrapper on product page — offset from sidebar, no grid */
+.product-page {
+  margin-left: 180px;
+  width: calc(100% - 180px);
+  padding: 2rem 1.5rem;
+}
+
+/* Product title and short description */
+.product-header {
+  max-width: 560px;
+  margin-bottom: 2.5rem;
+}
+
+.product-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #1a1a1a;
+  margin-bottom: 0.75rem;
+}
+
+.product-desc {
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* 2-column hero grid for the professional product shots */
+.product-gallery-hero {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+  margin-bottom: 2.5rem;
+}
+
+/* Section label between hero shots and context images */
+.section-label {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #aaa;
+  margin-bottom: 1rem;
+}
+
+/* On the product page, the .gallery is inline (no margin-left override needed) */
+.product-page .gallery {
+  margin-left: 0;
+  width: 100%;
+  padding: 0;
+}
+
+/* ════════════════════════════════════════
+   RESPONSIVE: smaller screens
+   Below 768px (tablet/mobile), the sidebar goes to the top
+════════════════════════════════════════ */
+@media (max-width: 768px) {
+  body {
     flex-direction: column;
   }
 
-  .hero h1 {
-    font-size: 2rem;
+  /* Sidebar becomes a horizontal top bar */
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 1.2rem 1.5rem;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .sidebar-top {
+    flex-shrink: 0;
+  }
+
+  .logo-sub {
+    margin-bottom: 0;
+  }
+
+  .nav-primary {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  /* Hide secondary nav on mobile to keep header clean */
+  .nav-secondary {
+    display: none;
+  }
+
+  /* Gallery takes full width on mobile */
+  .gallery {
+    margin-left: 0;
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+  }
+
+  /* Product page adjustments on mobile */
+  .product-page {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .product-gallery-hero {
+    grid-template-columns: 1fr; /* Stack to single column on mobile */
   }
 }
