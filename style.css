@@ -104,8 +104,8 @@ body {
   margin-left: 180px;       /* Match sidebar width so content doesn't overlap */
   padding: 1.5rem;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);  /* 3 equal columns */
-  gap: 6px;                 /* Small gap between images — clean and tight */
+  grid-template-columns: repeat(4, 1fr);  /* 4 columns — smaller images, more breathing room */
+  gap: 24px;                /* Wider white gaps between images, like ovuud.com */
   align-content: start;     /* Grid items start from the top */
   width: calc(100% - 180px);
 }
@@ -233,6 +233,7 @@ body {
     margin-left: 0;
     width: 100%;
     grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+    gap: 12px;
   }
 
   /* Product page adjustments on mobile */
